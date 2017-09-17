@@ -5,7 +5,14 @@
         "entree":["Spinach", "Tomatoes", "Onions", "Strawberries", "Hardboiled eggs"],
         "desert":"Fruit Salad",
         "calories": 500
-        },
+    },
+    "Fresh Alaskan Salmon":{
+        "nutrition":"diet",
+        "appetizer":"shrimp",
+        "entree":["Spinach", "Tomatoes", "Onions", "Strawberries", "Hardboiled eggs"],
+        "desert":"Fruit Salad",
+        "calories": 600
+    },
     "No Limit Ribs":{
         "nutrition":"nonDiet",
         "appetizer":"Fried Pickles with Ranch Dressing",
