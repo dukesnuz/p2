@@ -1,0 +1,28 @@
+form {
+	border: 2px solid blue;
+	Padding: 10px;
+	margin: auto;
+}
+ul {
+	list-style: none;
+}
+li {
+	margin-bottom: 10px;
+}
+label {
+	display: inline-block;
+}
+span.error {
+	color: red;
+	display: inherit;
+	font-size: .95em;
+	font-weight: bold;
+	margin-left: 15px;
+}
+button {
+	margin-left: 25px;
+	border: 2px solid;
+	padding: 5px;
+	font-weight: bold;
+	border-radius: 10px;
+}
