@@ -1,16 +1,35 @@
-form {
+body {
+	padding: 0;
+	margin: 0;
+	background-color: yellow;
+}
+div#wrapper {
+	width: 80%;
+	margin: auto;
+	background-color: orange;
+	padding: 10px 5% 5px 5%;
+}
+form, .output {
 	border: 2px solid blue;
 	Padding: 10px;
-	margin: auto;
+	width: 500px;
 }
 ul {
 	list-style: none;
 }
-li {
-	margin-bottom: 10px;
+p, fieldset {
+	margin-bottom: 25px;
+}
+fieldset {
+	border-color: #000;
+}
+fieldset p {
+	margin-bottom: 5px;
+	margin-top: 10px;
 }
 label {
 	display: inline-block;
+	font-weight: bold;
 }
 span.error {
 	color: red;
@@ -24,5 +43,18 @@ button {
 	border: 2px solid;
 	padding: 5px;
 	font-weight: bold;
+	margin-top: 25px;
+}
+footer {
+	background-color: honeydew;
+	margin-top: 100px;
+	padding: 10px;
+}
+input[type="text"], select, button {
 	border-radius: 10px;
+	background-color: lightgoldenrodyellow;
+}
+.output {
+	background-color: #fff;
+	margin-top: 20px;
 }

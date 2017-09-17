@@ -8,86 +8,89 @@
 //==============================================================
 // import the p1.contoller.php script
 include ('./logic/p2Logic.php');
-// set page title. Wanted to demonstrate an if else statement and variable
-$title = 'Project 2 | David Petringa';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
 
-        <title>
-        <?php if (isset($title)){
-				echo $title;
-			} else {
-				echo 'Project 2';
-			} ?>
-        </title>
+    <title>Project 2 | HES | Dwa</title>
 
-        <meta charset="UTF-8">
-        <meta name="description" content="HES - Dynamic Web Applications - Project Two">
-        <meta name="keywords" content="html, css, php">
-        <meta name="author" content="David Petringa">
+    <meta charset="UTF-8">
+    <meta name="description" content="HES - Dynamic Web Applications - Project Two">
+    <meta name="keywords" content="html, css, php">
+    <meta name="author" content="David Petringa">
 
-        <link rel="shortcut icon" href="http://www.dukesnuz.com/images/favicon.ico">
-        <link rel = "stylesheet" href = "http://www.dukesnuz.com/css_libs/dukes_normalize.css"/>
-        <link rel = "stylesheet" href = "./css/p2.css"/>
+    <link rel="shortcut icon" href="http://www.dukesnuz.com/images/favicon.ico">
+    <link rel = "stylesheet" href = "http://www.dukesnuz.com/css_libs/dukes_normalize.css"/>
+    <link rel = "stylesheet" href = "./css/p2.css?p=1234"/>
 
-    </head>
-    <body>
+</head>
+<body>
 
+    <div id ="wrapper">
         <header class="banner">
-            <h1>What Is For Dinner</h1>
-        </header>
+            <h1>HES - Dynamic Web Applications - Project 2</h1>
+            <h2>What's For Dinner?</h2>
+            </header>
 
-        <div id ="wrapper">
             <section class="content">
 
                 <header>
-                  <h2>Select your preferences.</h2>
+                    <h3>Select your preferences.</h3>
                 </header>
 
-				<form action ="/" method="get">
-					<ul>
-						<li>
-							<label for="maxCalories">Max Calories</label>
-							<input type="text" id="maxCalories" name="maxCalories" value="">
-						</li>
-						<li>
-							<label><input type="radio" name="nutrition" value="diet">Diet</label>
-							<label><input type="radio" name="nutrition" value="nonDiet">Non Diet</label>
-						</li>
-						<li>
-							<label for="protein">Select a Protein</lable>
-								<select name="protein">
-									<option value="select">Select a Protein</option>
-									<option value="eggs">Eggs</option>
-									<option value="pork">Pork</option>
-									<option value="chicken">Chicken</option>
-								</select>
-						</li>
-							<button type="submit">Select your dinner</button>
-						</li>
-					</ul>
-				<form>
+                <form action ="/" method="get">
+                    <p>
+                        <label for="maxCalories">Max Calories</label>
+                        <input type="text" id="maxCalories" name="maxCalories" value="<? if (isset($_GET['maxCalories'])) echo $_GET['maxCalories']; ?>">
+                        <span class="error">required</span>
+                    </p>
+                    <fieldset>
+                        <p>
+                            <label><input type="radio" name="nutrition" value="diet" <?php if ($nutrition == 'diet') echo 'CHECKED' ?>>Diet</label>
+                        </p>
+                        <p>
+                            <label><input type="radio" name="nutrition" value="nonDiet" <?php if ($nutrition == 'nonDiet') echo 'CHECKED' ?>>Non Diet</label>
+                            <span class="error">required</span>
+                        </p>
+                    </fieldset>
+                    <p>
+                        <label for="protein">Select a Protein</lable>
+                            <select name="protein">
+                                <option value="select">Select a Protein</option>
+                                <option value="eggs" <?php if ($protein == 'eggs') echo 'selected' ?>>Eggs</option>
+                                <option value="pork" <?php if ($protein == 'pork') echo 'selected' ?>>Pork</option>
+                                <option value="chicken" <?php if ($protein == 'chicken') echo 'selected' ?>>Chicken</option>
+                            </select>
+                        </p>
+                        <p>
+                            <button type="submit">Select your dinner</button>
+                        </p>
+                        <form>
 
-            </section>
+                        </section>
 
-			<section>
-				<header><h3>You selected the folowing</h3>
-					<?=$match?>
-        </div><!--END wrapper div-->
+                        <section class="output">
+                            <header><h3><?=$outputHeading?></h3>
+                                <ul>
+                                    <li><?php echo $dishName; ?></li>
+                                    <li><?php echo $dishNutrition; ?></li>
 
-        <footer>
+                                </ul>
+                            </section>
 
-          <ul>
-            <li>School: Harvard Extension</li>
-            <li>Class: Dynamic Web Applications</li>
-            <li>Assignment: Project two</li>
-            <li>Student: David Petringa</li>
-            <li>Coded: September 2017</li>
-          </ul>
+                            <footer>
 
-        </footer>
+                                <ul>
+                                    <li>School: Harvard Extension</li>
+                                    <li>Class: Dynamic Web Applications</li>
+                                    <li>Assignment: Project two</li>
+                                    <li>Student: David Petringa</li>
+                                    <li>Coded: September 2017</li>
+                                </ul>
 
-    </body>
-</html>
+                            </footer>
+                        </div><!--END wrapper div-->
+
+                    </body>
+                    </html>

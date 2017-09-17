@@ -1,7 +1,7 @@
 {
     "Low Fat Salad":{
         "nutrition":"diet",
-        "appetizer":"shrimp",
+        "appetizer":"None",
         "entree":["Spinach", "Tomatoes", "Onions", "Strawberries", "Hardboiled eggs"],
         "desert":"Fruit Salad",
         "calories": 500
@@ -9,8 +9,8 @@
     "Fresh Alaskan Salmon":{
         "nutrition":"diet",
         "appetizer":"shrimp",
-        "entree":["Spinach", "Tomatoes", "Onions", "Strawberries", "Hardboiled eggs"],
-        "desert":"Fruit Salad",
+        "entree":["Wild Salmon", "Asparagus", "Brown rice"],
+        "desert":"Yogurt",
         "calories": 600
     },
     "No Limit Ribs":{
