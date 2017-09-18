@@ -7,7 +7,8 @@
 // This app will pick a dinner menu accoring to the user selections.
 //==============================================================
 // import the p1.contoller.php script
-include ('./logic/p2Logic.php');
+// include causing error on live server
+//include ('./logic/p2Logic.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
