@@ -53,6 +53,7 @@ footer {
 input[type="text"], select, button {
 	border-radius: 10px;
 	background-color: lightgoldenrodyellow;
+	padding: 5px;
 }
 .output {
 	background-color: #fff;
