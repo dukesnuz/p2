@@ -9,6 +9,20 @@ $maxCalories='';
 $nutrition='';
 $protein='';
 $outputHeading ='';
+$errorProtein = 'Optional';
+//check that form is filled in
+
+if(empty($_GET['maxCalories']) || !filter_var($_GET['maxCalories'], FILTER_VALIDATE_INT)) {
+  $errorCalories = 'Required. Please enter only numbers';
+} else {
+   $errorCalories = '';
+}
+
+if(!isset($_GET['nutrition'])) {
+  $errorNutrition = 'Required. Please select Diet or Non Diet.';
+} else {
+   $errorNutrition = '';
+}
 
 // Set variables to an empty string
 $dishName=$dishNutrition=$dishApetizer=$dishEntree=$dishDesert=$dishCalories='';
@@ -30,6 +44,7 @@ if (isset($_GET['maxCalories']) && isset($_GET['nutrition'])) {
 	   // $dishNutrition=$dish['nutrition'];
 		// check if a match
 	//	if ($dishCalories <= $maxCalories && $nutrition == $dishNutrition) {
+	        unset($dishes[$key]); // used in video use another code style
 			//$dishName.=$key;
 			//$dishNutrition.=$dish['nutrition'];
 	       // $dishApetizer.=$dish['appetizer'];

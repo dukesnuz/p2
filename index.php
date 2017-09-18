@@ -8,7 +8,7 @@
 //==============================================================
 // import the p1.contoller.php script
 // include causing error on live server
-//include ('./logic/p2Logic.php');
+include ('./logic/p2Logic.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,66 +32,66 @@
         <header class="banner">
             <h1>HES - Dynamic Web Applications - Project 2</h1>
             <h2>What's For Dinner?</h2>
+        </header>
+
+        <section class="content">
+
+            <header>
+                <h3>Select your preferences.</h3>
             </header>
 
-            <section class="content">
-
-                <header>
-                    <h3>Select your preferences.</h3>
-                </header>
-
-                <form action ="/" method="get">
+            <form action ="/" method="get">
+                <p>
+                    <label for="maxCalories">Max Calories</label>
+                    <input type="text" id="maxCalories" name="maxCalories" id="maxCalories" value="<?=$maxCalories?>">
+                    <span class="error"><?=$errorCalories?></span>
+                </p>
+                <fieldset>
                     <p>
-                        <label for="maxCalories">Max Calories</label>
-                        <input type="text" id="maxCalories" name="maxCalories" value="<? if (isset($_GET['maxCalories'])) echo $_GET['maxCalories']; ?>">
-                        <span class="error">required</span>
+                        <label for="nutrition"><input type="radio" name="nutrition" id="nutrition" value="diet" <?php if(isset($_GET['nutrition'])=='diet') echo "CHECKED"?>>Diet</label>
                     </p>
-                    <fieldset>
-                        <p>
-                            <label><input type="radio" name="nutrition" value="diet" <?php if ($nutrition == 'diet') echo 'CHECKED' ?>>Diet</label>
-                        </p>
-                        <p>
-                            <label><input type="radio" name="nutrition" value="nonDiet" <?php if ($nutrition == 'nonDiet') echo 'CHECKED' ?>>Non Diet</label>
-                            <span class="error">required</span>
-                        </p>
-                    </fieldset>
                     <p>
-                        <label for="protein">Select a Protein</lable>
-                            <select name="protein">
-                                <option value="select">Select a Protein</option>
-                                <option value="eggs" <?php if ($protein == 'eggs') echo 'selected' ?>>Eggs</option>
-                                <option value="pork" <?php if ($protein == 'pork') echo 'selected' ?>>Pork</option>
-                                <option value="chicken" <?php if ($protein == 'chicken') echo 'selected' ?>>Chicken</option>
-                            </select>
-                        </p>
-                        <p>
-                            <button type="submit">Select your dinner</button>
-                        </p>
-                        <form>
+                        <label for="nutrition"><input type="radio" name="nutrition" id="nutrition" value="nonDiet" <?php if(isset($_GET['nutrition'])=='nonDiet') echo "CHECKED"?>>Non Diet</label>
+                        <span class="error"><?=$errorNutrition?></span>
+                    </p>
+                </fieldset>
+                <p>
+                    <label for="protein">Select a Protein</label>
+                        <select name="protein">
+                            <option value="select">Select a Protein</option>
+                            <option value="eggs" <?php if ($protein == 'eggs') echo 'selected' ?>>Eggs</option>
+                            <option value="pork" <?php if ($protein == 'pork') echo 'selected' ?>>Pork</option>
+                            <option value="chicken" <?php if ($protein == 'chicken') echo 'selected' ?>>Chicken</option>
+                        </select>
+                        <span class="error"><?=$errorProtein?></span>
+                    </p>
+                    <p>
+                        <button type="submit">Select your dinner</button>
+                    </p>
+                    <form>
 
+                    </section>
+
+                    <section class="output">
+                        <header><h3><?=$outputHeading?></h3>
+                            <ul>
+                                <li><?php echo $dishName; ?></li>
+                                <li><?php echo $dishNutrition; ?></li>
+                            </ul>
                         </section>
 
-                        <section class="output">
-                            <header><h3><?=$outputHeading?></h3>
-                                <ul>
-                                    <li><?php echo $dishName; ?></li>
-                                    <li><?php echo $dishNutrition; ?></li>
+                        <footer>
 
-                                </ul>
-                            </section>
+                            <ul>
+                                <li>School: Harvard Extension</li>
+                                <li>Class: Dynamic Web Applications</li>
+                                <li>Assignment: Project two</li>
+                                <li>Student: David Petringa</li>
+                                <li>Coded: September 2017</li>
+                            </ul>
 
-                            <footer>
+                        </footer>
+                    </div><!--END wrapper div-->
 
-                                <ul>
-                                    <li>School: Harvard Extension</li>
-                                    <li>Class: Dynamic Web Applications</li>
-                                    <li>Assignment: Project two</li>
-                                    <li>Student: David Petringa</li>
-                                    <li>Coded: September 2017</li>
-                                </ul>
-
-                            </footer>
-                        </div><!--END wrapper div-->
-
-                    </body>
-                    </html>
+                </body>
+                </html>
