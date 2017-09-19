@@ -9,13 +9,17 @@ div#wrapper {
 	background-color: orange;
 	padding: 10px 5% 5px 5%;
 }
-form, .output {
+form, .outputDisplay {
 	border: 2px solid blue;
 	Padding: 10px;
 	width: 500px;
 }
 ul {
 	list-style: none;
+}
+li {
+	padding: 10px;
+	padding-bottom: 5px;
 }
 p, fieldset {
 	margin-bottom: 25px;
@@ -55,7 +59,16 @@ input[type="text"], select, button {
 	background-color: lightgoldenrodyellow;
 	padding: 5px;
 }
-.output {
+.outputDisplay {
 	background-color: #fff;
 	margin-top: 20px;
+	margin-bottom: 25px;
+}
+.dishDisplayed {
+	font-size: 1.1em;
+	background-color: #F5F5DC;
+	margin-bottom: 25px;
+}
+.outputHide {
+	display: none;
 }
