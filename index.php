@@ -22,7 +22,7 @@ include ('./logic/p2Logic.php');
 
     <link rel="shortcut icon" href="http://www.dukesnuz.com/images/favicon.ico">
     <link rel = "stylesheet" href = "http://www.dukesnuz.com/css_libs/dukes_normalize.css"/>
-    <link rel = "stylesheet" href = "./css/p2.css"/>
+    <link rel = "stylesheet" href = "./css/p2.css?c=123"/>
 
 </head>
 <body>
@@ -72,26 +72,29 @@ include ('./logic/p2Logic.php');
 
         </section>
 
-        <section class="output">
+        <section class="<?=$outputClass?>">
             <header>
-                <h3><?=$outputHeading?></h3>
+                <h3>We Found These Tasty Dishes For You.</h3>
             </header>
-            <ul>
                 <?php foreach ($dishes as $key => $dish) :?>
                     <?php if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition']): ?>
-                        <li><?=$key?></li>
-                        <li><?=$dishes[$key]['nutrition']?></li>
-                        <li><?=$dishes[$key]['appetizer']?></li>
-                        <?php foreach ($dishes[$key]['entree'] as $item): ?>
-                            <ul>
-                                <li><?=$item?></li>
-                            </ul>
-                        <?php endforeach; ?>
-                        <li><?=$dishes[$key]['desert']?></li>
-                        <li><?=$dishes[$key]['calories']?></li>
+                        <ul class="dishDisplayed">
+                            <li><strong><?=$key?></strong></li>
+                            <li><strong>Nutrition:</strong> <?=$dishes[$key]['nutrition']?></li>
+                            <li><strong>Appetizer:</strong> <?=$dishes[$key]['appetizer']?></li>
+                            <li><strong>Entree:</strong></li>
+                                <li>
+                                    <ul>
+                                        <?php foreach ($dishes[$key]['entree'] as $item): ?>
+                                            <li><?=$item?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </li>
+                            <li><strong>Desert:</strong> <?=$dishes[$key]['desert']?></li>
+                            <li><strong>Calories:</strong> <?=$dishes[$key]['calories']?></li>
+                        </ul>
                     <?php endif; ?>
                 <?php endforeach; ?>
-            </ul>
         </section>
 
         <footer>
