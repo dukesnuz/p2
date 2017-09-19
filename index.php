@@ -77,8 +77,20 @@ include ('./logic/p2Logic.php');
                 <h3><?=$outputHeading?></h3>
             </header>
             <ul>
-                <li><?php echo $dishName; ?></li>
-                <li><?php echo $dishNutrition; ?></li>
+                <?php foreach ($dishes as $key => $dish) :?>
+                    <?php if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition']): ?>
+                        <li><?=$key?></li>
+                        <li><?=$dishes[$key]['nutrition']?></li>
+                        <li><?=$dishes[$key]['appetizer']?></li>
+                        <?php foreach ($dishes[$key]['entree'] as $item): ?>
+                            <ul>
+                                <li><?=$item?></li>
+                            </ul>
+                        <?php endforeach; ?>
+                        <li><?=$dishes[$key]['desert']?></li>
+                        <li><?=$dishes[$key]['calories']?></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </ul>
         </section>
 
