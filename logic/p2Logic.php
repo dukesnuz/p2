@@ -1,5 +1,5 @@
 <?php
-//require ('../helpers.php');
+require ('../helpers.php');
 $dishesJson = file_get_contents('./data/menu.json');
 
 $dishes = json_decode($dishesJson, true);
@@ -24,7 +24,7 @@ if(empty($_GET['maxCalories']) || !filter_var($_GET['maxCalories'], FILTER_VALID
   $errorCalories = 'Required. Please enter only numbers';
 } else {
    $errorCalories = '';
-   $maxCalories=$_GET['maxCalories'];
+   $maxCalories=sanitize($_GET['maxCalories']);
 }
 
 if(!isset($_GET['nutrition'])) {
@@ -35,7 +35,7 @@ if(!isset($_GET['nutrition'])) {
 }
 
 if (isset($_GET['protein'])){
-	$protein=$_GET['protein'];
+	$protein=sanitize($_GET['protein']);
 }
 // Save entered values to form
 if($nutrition=='diet') {
