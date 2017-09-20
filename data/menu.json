@@ -4,20 +4,31 @@
         "appetizer":"None",
         "entree":["Spinach", "Tomatoes", "Onions", "Strawberries", "Hardboiled eggs"],
         "desert":"Fruit Salad",
-        "calories": 500
+        "calories":500,
+        "protein":"eggs"
     },
     "Fresh Alaskan Salmon":{
         "nutrition":"diet",
         "appetizer":"shrimp",
         "entree":["Wild Salmon", "Asparagus", "Brown rice"],
         "desert":"Yogurt",
-        "calories": 600
+        "calories":600,
+        "protein":"fish"
     },
     "No Limit Ribs":{
         "nutrition":"nonDiet",
         "appetizer":"Fried Pickles with Ranch Dressing",
         "entree":["Slab of bbq pork ribs", "Sweet sauce", "Baked beans"],
         "desert":"Apple Cobbler with vanilla ice cream and whip cream",
-        "calories": 1500
+        "calories":1500,
+        "protein":"pork"
+    },
+    "Sizzling Steak":{
+        "nutrition":"nonDiet",
+        "appetizer":"Buffalo wings",
+        "entree":["Flame broiled sirloin steak", ,"Olive oil garlic sauce", "Steak fries"],
+        "desert":"Banan split",
+        "calories":1800,
+        "protein":"beef"
     }
 }
