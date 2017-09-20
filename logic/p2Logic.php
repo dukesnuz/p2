@@ -6,7 +6,7 @@
 // Susan, Thank you for checking my work.
 // This app will pick a dinner menu according to the user selections.
 ================================================*/
-require ('../helpers.php');
+require ('./logic/helpers.php');
 $dishesJson = file_get_contents('./data/menu.json');
 
 $dishes = json_decode($dishesJson, true);
