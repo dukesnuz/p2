@@ -1,12 +1,12 @@
 <?php
-/*=================================================
+/*======================================================
 // script - p2Logic.php
 // Class - HES - Dynamic Web Applications - Project 2 - Fall 2017
 // Student: David Petringa
 // Susan, Thank you for checking my work.
 // This app will pick a dinner menu according to the user selections.
-// Version 2 has more php logic in the logig script
-================================================*/
+// version 2 most php logic in display
+========================================================*/
 require ('../helpers.php');
 $dishesJson = file_get_contents('./data/menu.json');
 
@@ -62,12 +62,4 @@ if ($protein =='eggs') {
 }
 if ($protein =='pork') {
 	$pork= 'SELECTED';
-}
-
-// Add matched dishes to an array
-$foundDishes = [];
-foreach ($dishes as $key => $dish) {
-	if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition']) {
-		$foundDishes[$key] = $dish;
-	}
 }
