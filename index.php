@@ -1,15 +1,14 @@
 <?php
 //=============================================================
-// script - index.php
+// Script - index.php
 // Class - HES - Dynamic Web Applications - Project 2 - Fall 2017
 // Student: David Petringa
 // Susan, Thank you for checking my work.
 // This app will pick a dinner menu according to the user selections.
-// Version 1 has most php logic in logic script
 //==============================================================
 
-// import the p1.contoller.php script
-//  version 1 less php in display file - more logic in logic script
+// Import the p1.contoller.php script
+// version 1 less php in display file - more logic in logic script
 include ('./logic/p2Logic.php');
 ?>
 <!DOCTYPE html>
@@ -25,7 +24,7 @@ include ('./logic/p2Logic.php');
 
     <link rel="shortcut icon" href="http://www.dukesnuz.com/images/favicon.ico">
     <link rel = "stylesheet" href = "http://www.dukesnuz.com/css_libs/dukes_normalize.css"/>
-    <link rel = "stylesheet" href = "./css/p2.css?c=123"/>
+    <link rel = "stylesheet" href = "./css/p2.css"/>
 
 </head>
 <body>
@@ -83,13 +82,13 @@ include ('./logic/p2Logic.php');
                     <ul>
                         <li><strong>Your calorie selection:</strong> <?=$maxCalories?></li>
                         <li><strong>Your diet selection:</strong> <?php echo ($diet == "CHECKED")?  'Diet':  'Not diet';?></li>
-                        <li><strong>Your protein selection:</strong> <?=$protein?></li>
+                        <li><strong>Your protein selection:</strong> <?=ucfirst($protein)?></li>
                     </ul>
                 <?php else : ?>
                     <h3>We did not find any tasty dishes. Please try again.</h3>
                     <ul>
                         <li><strong>Your calories selection:</strong> <?=$maxCalories?></li>
-                        <li><strong>Your diet selection:</strong> <?php echo ($diet == "CHECKED")?  'Diet':  'Not diet';?></li>
+                        <li><strong>Your diet selection:</strong> <?=($diet == "CHECKED")? 'Diet': 'Not diet'?></li>
                         <li><strong>Your protein selection:</strong> <?=$protein?></li>
                     </ul>
                 <?php endif; ?>
@@ -98,7 +97,7 @@ include ('./logic/p2Logic.php');
             <?php foreach ($foundDishes as $key => $item) : ?>
                 <ul class="dishDisplayed">
                     <li><strong><?=$key?></strong></li>
-                    <li><strong>Nutrition: </strong><?=$foundDishes[$key]['nutrition']?></li>
+                    <li><strong>Nutrition: </strong><?=($foundDishes[$key]['nutrition'] == "diet")? 'Diet': 'Not diet'?></li>
                     <li><strong>Appetizer: </strong><?=$foundDishes[$key]['appetizer']?></li>
                     <li><strong>Entree:</strong>
                         <ul>
