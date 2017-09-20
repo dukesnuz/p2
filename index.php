@@ -5,9 +5,11 @@
 // Student: David Petringa
 // Susan, Thank you for checking my work.
 // This app will pick a dinner menu according to the user selections.
-// Version 1 has most php logic in display
+// Version 1 has most php logic in logic script
 //==============================================================
+
 // import the p1.contoller.php script
+//  version 1 less php in display file - more logic in logic script
 include ('./logic/p2Logic.php');
 ?>
 <!DOCTYPE html>
@@ -62,6 +64,7 @@ include ('./logic/p2Logic.php');
                         <option value="beef" <?=$beef?>>Beef</option>
                         <option value="chicken" <?=$chicken?>>Chicken</option>
                         <option value="eggs" <?=$eggs?>>Eggs</option>
+                        <option value="eggs" <?=$fish?>>Fish</option>
                         <option value="pork" <?=$pork?>>Pork</option>
                     </select>
                     <span class="error"><?=$errorProtein?></span>
@@ -75,27 +78,40 @@ include ('./logic/p2Logic.php');
 
         <section class="<?=$outputClass?>">
             <header>
-                <h3>We Found These Tasty Dishes For You.</h3>
+                <?php if (count($foundDishes) > 0) : ?>
+                    <h3>We Found These Tasty Dishes For You.</h3>
+                    <ul>
+                        <li><strong>Your calorie selection:</strong> <?=$maxCalories?></li>
+                        <li><strong>Your diet selection:</strong> <?php echo ($diet == "CHECKED")?  'Diet':  'Not diet';?></li>
+                        <li><strong>Your protein selection:</strong> <?=$protein?></li>
+                    </ul>
+                <?php else : ?>
+                    <h3>We did not find any tasty dishes. Please try again.</h3>
+                    <ul>
+                        <li><strong>Your calories selection:</strong> <?=$maxCalories?></li>
+                        <li><strong>Your diet selection:</strong> <?php echo ($diet == "CHECKED")?  'Diet':  'Not diet';?></li>
+                        <li><strong>Your protein selection:</strong> <?=$protein?></li>
+                    </ul>
+                <?php endif; ?>
             </header>
-                <?php foreach ($dishes as $key => $dish) :?>
-                    <?php if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition']): ?>
-                        <ul class="dishDisplayed">
-                            <li><strong><?=$key?></strong></li>
-                            <li><strong>Nutrition:</strong> <?=$dishes[$key]['nutrition']?></li>
-                            <li><strong>Appetizer:</strong> <?=$dishes[$key]['appetizer']?></li>
-                            <li><strong>Entree:</strong></li>
-                                <li>
-                                    <ul>
-                                        <?php foreach ($dishes[$key]['entree'] as $item): ?>
-                                            <li><?=$item?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </li>
-                            <li><strong>Desert:</strong> <?=$dishes[$key]['desert']?></li>
-                            <li><strong>Calories:</strong> <?=$dishes[$key]['calories']?></li>
+
+            <?php foreach ($foundDishes as $key => $item) : ?>
+                <ul class="dishDisplayed">
+                    <li><strong><?=$key?></strong></li>
+                    <li><strong>Nutrition: </strong><?=$foundDishes[$key]['nutrition']?></li>
+                    <li><strong>Appetizer: </strong><?=$foundDishes[$key]['appetizer']?></li>
+                    <li><strong>Entree:</strong>
+                        <ul>
+                            <?php foreach ($foundDishes[$key]['entree'] as $entreeItem) :?>
+                                <li><?=$entreeItem?></li>
+                            <?php endforeach; ?>
                         </ul>
-                    <?php endif; ?>
-                <?php endforeach; ?>
+                    </li>
+                    <li><strong>Desert: </strong><?=$foundDishes[$key]['desert']?></li>
+                    <li><strong>Calories: </strong><?=$foundDishes[$key]['calories']?></li>
+                </ul>
+            <?php endforeach; ?>
+
         </section>
 
         <footer>
