@@ -64,7 +64,7 @@ include ('./logic/p2Logic.php');
                         <option value="beef" <?=$beef?>>Beef</option>
                         <option value="chicken" <?=$chicken?>>Chicken</option>
                         <option value="eggs" <?=$eggs?>>Eggs</option>
-                        <option value="eggs" <?=$fish?>>Fish</option>
+                        <option value="fish" <?=$fish?>>Fish</option>
                         <option value="pork" <?=$pork?>>Pork</option>
                     </select>
                     <span class="error"><?=$errorProtein?></span>
