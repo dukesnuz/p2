@@ -26,9 +26,17 @@
     "Sizzling Steak":{
         "nutrition":"nonDiet",
         "appetizer":"Buffalo wings",
-        "entree":["Flame broiled sirloin steak", ,"Olive oil garlic sauce", "Steak fries"],
-        "desert":"Banan split",
+        "entree":["Flame broiled sirloin steak", "Olive oil garlic sauce", "Steak fries"],
+        "desert":"Banana split",
         "calories":1800,
         "protein":"beef"
+    },
+    "Fried Chicken":{
+        "nutrition":"nonDiet",
+        "appetizer":"Fried zucchini",
+        "entree":["Fried chicken", "French fries"],
+        "desert":"Apple pie with vanilla ice cream",
+        "calories":2000,
+        "protein":"chicken"
     }
 }
