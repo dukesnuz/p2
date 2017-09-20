@@ -27,18 +27,18 @@ $outputClass='outputHide';
 
 // Check that form is filled in
 if(empty($_GET['maxCalories']) || !filter_var($_GET['maxCalories'], FILTER_VALIDATE_INT)) {
-  $errorCalories = 'Required. Please enter only numbers';
+	$errorCalories = 'Required. Please enter only numbers';
 } else {
-   $errorCalories = '';
-   $maxCalories=sanitize($_GET['maxCalories']);
+	$errorCalories = '';
+	$maxCalories=sanitize($_GET['maxCalories']);
 }
 
 if(!isset($_GET['nutrition'])) {
-  $errorNutrition = 'Required. Please select Diet or Non Diet.';
+	$errorNutrition = 'Required. Please select Diet or Non Diet.';
 } else {
-   $errorNutrition = '';
-   $nutrition=sanitize($_GET['nutrition']);
-   $outputClass='outputDisplay';
+	$errorNutrition = '';
+	$nutrition=sanitize($_GET['nutrition']);
+	$outputClass='outputDisplay';
 }
 
 if (isset($_GET['protein'])){
@@ -46,7 +46,7 @@ if (isset($_GET['protein'])){
 }
 // Save entered values to form
 if($nutrition=='diet') {
-    $diet = 'CHECKED';
+	$diet = 'CHECKED';
 }
 if($nutrition=='nonDiet') {
 	$nonDiet = 'CHECKED';
@@ -64,6 +64,7 @@ if ($protein =='pork') {
 	$pork= 'SELECTED';
 }
 
+// Add matched dishes to an array
 $foundDishes = [];
 foreach ($dishes as $key => $dish) {
 	if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition']) {
