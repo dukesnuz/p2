@@ -5,7 +5,6 @@
 // Student: David Petringa
 // Susan, Thank you for checking my work.
 // This app will pick a dinner menu according to the user selections.
-// Version 1 has more php logic in the logic script
 ================================================*/
 require ('../helpers.php');
 $dishesJson = file_get_contents('./data/menu.json');
