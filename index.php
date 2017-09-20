@@ -4,7 +4,8 @@
 // Class - HES - Dynamic Web Applications - Project 2 - Fall 2017
 // Student: David Petringa
 // Susan, Thank you for checking my work.
-// This app will pick a dinner menu accoring to the user selections.
+// This app will pick a dinner menu according to the user selections.
+// Version 1 has most php logic in display
 //==============================================================
 // import the p1.contoller.php script
 include ('./logic/p2Logic.php');
