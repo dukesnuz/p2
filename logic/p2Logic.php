@@ -7,8 +7,8 @@
 // This app will pick a dinner menu according to the user selections.
 ================================================*/
 require ('./logic/helpers.php');
+// Get data from JSON file
 $dishesJson = file_get_contents('./data/menu.json');
-
 $dishes = json_decode($dishesJson, true);
 
 // Set variables in order to not cause errors
@@ -72,7 +72,7 @@ if ($protein =='pork') {
 // Add matched dishes to an array
 $foundDishes = [];
 foreach ($dishes as $key => $dish) {
-	if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition'] && $protein == $dishes[$key]['protein']) {
-		$foundDishes[$key] = $dish;
-	}
+    if ($dishes[$key]['calories'] <= $maxCalories && $nutrition == $dishes[$key]['nutrition'] && $protein == $dishes[$key]['protein']) {
+        $foundDishes[$key] = $dish;
+    }
 }
