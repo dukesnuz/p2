@@ -7,8 +7,7 @@
 // This app will pick a dinner menu according to the user selections.
 //==============================================================
 
-// Import the p1.contoller.php script
-// version 1 less php in display file - more logic in logic script
+// Import the p2Logic.php logic script
 include ('./logic/p2Logic.php');
 ?>
 <!DOCTYPE html>
@@ -30,6 +29,7 @@ include ('./logic/p2Logic.php');
 <body>
 
     <div id ="wrapper">
+
         <header class="banner">
             <h1>HES - Dynamic Web Applications - Project 2</h1>
             <h2>What's For Dinner?</h2>
@@ -41,6 +41,7 @@ include ('./logic/p2Logic.php');
                 <h3>Select your preferences</h3>
             </header>
 
+            <!--User input form-->
             <form action ="/" method="get">
                 <p>
                     <label for="maxCalories">Max Calories</label>
@@ -57,8 +58,8 @@ include ('./logic/p2Logic.php');
                     <span class="error"><?=$errorNutrition?></span>
                 </fieldset>
                 <p>
-                    <label>Select a Protein</label>
-                    <select name="protein">
+                    <label for="protein">Select a Protein</label>
+                    <select name="protein" id="protein">
                         <option value="select">Select a Protein</option>
                         <option value="beef" <?=$beef?>>Beef</option>
                         <option value="chicken" <?=$chicken?>>Chicken</option>
@@ -74,8 +75,9 @@ include ('./logic/p2Logic.php');
             </form>
 
         </section>
-
+        <!--Show user input or message if no data found-->
         <section class="<?=$outputClass?>">
+
             <header>
                 <?php if (count($foundDishes) > 0) : ?>
                     <h3>We Found These Tasty Dishes For You.</h3>
@@ -94,6 +96,7 @@ include ('./logic/p2Logic.php');
                 <?php endif; ?>
             </header>
 
+            <!-- Display found data-->
             <?php foreach ($foundDishes as $key => $item) : ?>
                 <ul class="dishDisplayed">
                     <li><strong><?=$key?></strong></li>
