@@ -75,6 +75,7 @@ include ('./logic/p2Logic.php');
             </form>
 
         </section>
+
         <!--Show user input or message if no data found-->
         <section class="<?=$outputClass?>">
 
@@ -127,6 +128,7 @@ include ('./logic/p2Logic.php');
             </ul>
 
         </footer>
+        
     </div><!--END wrapper div-->
 
 </body>
