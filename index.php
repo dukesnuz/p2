@@ -128,7 +128,7 @@ include ('./logic/p2Logic.php');
             </ul>
 
         </footer>
-        
+
     </div><!--END wrapper div-->
 
 </body>
