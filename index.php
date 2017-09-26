@@ -46,7 +46,7 @@ include ('./logic/p2Logic.php');
                 <p>
                     <label for="maxCalories">Max Calories</label>
                     <input type="text" id="maxCalories" name="maxCalories" value="<?=$maxCalories?>">
-                    <span class="error"><?=$errorCalories?></span>
+                    <span class="error"><?php echo ($errorMaxcalories == true)? 'Please enter only numbers.': '';?></span>
                 </p>
                 <fieldset>
                     <p>
@@ -55,7 +55,7 @@ include ('./logic/p2Logic.php');
                     <p>
                         <label><input type="radio" name="nutrition" value="nonDiet" <?=$nonDiet?>>Non Diet</label>
                     </p>
-                    <span class="error"><?=$errorNutrition?></span>
+                    <span class="error"><?php echo (!$form->get('nutrition'))? 'Required' : '';?></span>
                 </fieldset>
                 <p>
                     <label for="protein">Select a Protein</label>
@@ -67,7 +67,7 @@ include ('./logic/p2Logic.php');
                         <option value="fish" <?=$fish?>>Fish</option>
                         <option value="pork" <?=$pork?>>Pork</option>
                     </select>
-                    <span class="error"><?=$errorProtein?></span>
+                    <span class="error"><?php echo (!$form->get('protein') || $form->get('protein') == 'select' || $form->get('protein' == null))? 'Required' : '';?></span>
                 </p>
                 <p>
                     <button type="submit">Select your dinner</button>

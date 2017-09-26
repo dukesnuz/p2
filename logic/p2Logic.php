@@ -10,35 +10,49 @@ require('./logic/helpers.php');
 require('./libraries/Menu.php');
 require('./libraries/Form.php');
 use David\Menu;
-use David\Form;
+use DWA \Form;
 
-// Set variables in order to not cause errors
+// Create new menu object and retrieve data from JSON file
+$menu = new Menu('./data/menu.json');
+// Create new form object
+$form = new Form($_GET);
+
+// Set variables
 $maxCalories=$nutrition=$diet=$nonDiet=$protein=$beef=$chicken=$eggs=$fish=$pork='';
+$errorMaxcalories = 'false';
 $outputClass='outputHide';
 
-// Check that form is filled in
-$form = new Form();
+// validate
+if ($form->isSubmitted()) {
+    $errors = $form->validate([
+        'maxCalories' => 'required',
+        'maxCalories' => 'numeric',
+        'nutrition' => 'required'
+    ]);
+    // Loop through errors to see if error in maxCalories field
+    for ($i = 0 ; $i < count($errors); $i++){
+        if($errors[$i] == "The field maxCalories can only contain numbers") {
+            $errorMaxcalories = true;
+            break;
+        } else {
+            $errorMaxcalories = false;
+        }
+    }
+}
 
-
-if(empty($_GET['maxCalories']) || !filter_var($_GET['maxCalories'], FILTER_VALIDATE_INT)) {
-    $errorCalories = 'Required. Please enter only numbers';
-} else {
-    $errorCalories = '';
+if (isset($_GET['maxCalories'])) {
     $maxCalories=sanitize($_GET['maxCalories']);
 }
-if(!isset($_GET['nutrition'])) {
-    $errorNutrition = 'Required. Please select Diet or Non Diet.';
-} else {
-    $errorNutrition = '';
+
+if(isset($_GET['nutrition'])) {
     $nutrition=sanitize($_GET['nutrition']);
     $outputClass='outputDisplay';
 }
+
 if (isset($_GET['protein']) && $_GET['protein'] !='select'){
     $protein=sanitize($_GET['protein']);
-    $errorProtein ='';
-} else {
-    $errorProtein='Required. Please select a protein.';
 }
+
 // Save entered values to form
 if($nutrition=='diet') {
     $diet = 'CHECKED';
@@ -61,7 +75,6 @@ if ($protein =='fish') {
 if ($protein =='pork') {
     $pork= 'SELECTED';
 }
-// Create new object and retrieve data from JSON file
-$menu = new Menu('./data/menu.json');
+
 // Call getDish method passing in 3 parameters
 $foundDishes = $menu->getDish($maxCalories, $nutrition, $protein);
