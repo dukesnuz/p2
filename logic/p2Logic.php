@@ -10,7 +10,7 @@ require('./logic/helpers.php');
 require('./libraries/Menu.php');
 require('./libraries/Form.php');
 use David\Menu;
-use DWA \Form;
+use DWA\Form;
 
 // Create new menu object and retrieve data from JSON file
 $menu = new Menu('./data/menu.json');
@@ -19,34 +19,40 @@ $form = new Form($_GET);
 
 // Set variables
 $maxCalories=$nutrition=$diet=$nonDiet=$protein=$beef=$chicken=$eggs=$fish=$pork='';
-$errorMaxcalories = 'false';
+//$errorMaxcalories = 'true';
 $outputClass='outputHide';
 
 // validate
 if ($form->isSubmitted()) {
+    $errorMaxcalories = false;
     $errors = $form->validate([
         'maxCalories' => 'required',
         'maxCalories' => 'numeric',
         'nutrition' => 'required'
     ]);
-    // Loop through errors to see if error in maxCalories field
-    for ($i = 0 ; $i < count($errors); $i++){
-        if($errors[$i] == "The field maxCalories can only contain numbers") {
+    foreach ($errors as $error) {
+        if ($error == 'The field maxCalories can only contain numbers') {
             $errorMaxcalories = true;
             break;
-        } else {
-            $errorMaxcalories = false;
-        }
-    }
-}
+        } //End if
+    } // END foreach
 
+    // Show hide results section
+    if (!empty($errors)) {
+        $outputClass='outputHide';
+    } else {
+        $outputClass='outputDisplay';
+    }
+} // END if ($form-isSubmitted)
+
+
+// Set value in fields
 if (isset($_GET['maxCalories'])) {
     $maxCalories=sanitize($_GET['maxCalories']);
 }
 
 if(isset($_GET['nutrition'])) {
     $nutrition=sanitize($_GET['nutrition']);
-    $outputClass='outputDisplay';
 }
 
 if (isset($_GET['protein']) && $_GET['protein'] !='select'){

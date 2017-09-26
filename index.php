@@ -40,13 +40,18 @@ include ('./logic/p2Logic.php');
             <header>
                 <h3>Select your preferences</h3>
             </header>
-
             <!--User input form-->
             <form action ="/" method="get">
                 <p>
                     <label for="maxCalories">Max Calories</label>
                     <input type="text" id="maxCalories" name="maxCalories" value="<?=$maxCalories?>">
-                    <span class="error"><?php echo ($errorMaxcalories == true)? 'Please enter only numbers.': '';?></span>
+                    <span class="error">
+                        <?php if (!isset($errorMaxcalories) || $errorMaxcalories == true) : ?>
+                            Required Numbers only.
+                        <?php else : ?>
+                            &nbsp;
+                        <?php endif; ?>
+                    </span>
                 </p>
                 <fieldset>
                     <p>
