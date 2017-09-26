@@ -2,25 +2,23 @@
 
 namespace David;
 
-class ClassName {
+class Menu {
     // Properties
     private $dishes;
     // Methods
-	public function __construct($jsonData) {
+    public function __construct($jsonData) {
         // Get data from JSON file
         $dishesJson = file_get_contents($jsonData);
         $this->dishes = json_decode($dishesJson, true);
-        //var_dump($this->dishes);
     }
-
-    public function getDish($maxCalories){
+    // Method finds dishes that match selected variables
+    public function getDish($maxCalories, $nutrition, $protein){
         $foundDishes = [];
         foreach ($this->dishes as $key => $dish) {
-           //if ($this->$dishes[$key]['calories'] <= $maxCalories && $nutrition == $this->$dishes[$key]['nutrition'] && $protein == $this->$dishes[$key]['protein']) {
-              if ($dish['calories'] <= $maxCalories) {
-                  $foundDishes = $dish;
+            if ($dish['calories'] <= $maxCalories && $nutrition == $dish['nutrition'] && $protein == $dish['protein']) {
+                $foundDishes[$key] = $dish;
             }
+        }
         return $foundDishes;
     }
-}
 } // End class
