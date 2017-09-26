@@ -80,7 +80,8 @@ include ('./logic/p2Logic.php');
         <section class="<?=$outputClass?>">
 
             <header>
-                <?php if (count($foundDishes) > 0) : ?>
+                <?php var_dump( $foundDishes);
+                if (count($foundDishes) > 0) : ?>
                     <h3>We Found These Tasty Dishes For You.</h3>
                     <ul>
                         <li><strong>Your calorie selection:</strong> <?=$maxCalories?></li>
@@ -101,17 +102,17 @@ include ('./logic/p2Logic.php');
             <?php foreach ($foundDishes as $key => $item) : ?>
                 <ul class="dishDisplayed">
                     <li><strong><?=$key?></strong></li>
-                    <li><strong>Nutrition: </strong><?=($foundDishes[$key]['nutrition'] == "diet")? 'Diet': 'Not diet'?></li>
-                    <li><strong>Appetizer: </strong><?=$foundDishes[$key]['appetizer']?></li>
+                    <li><strong>Nutrition: </strong><?=($foundDishes['nutrition'] == "diet")? 'Diet': 'Not diet'?></li>
+                    <li><strong>Appetizer: </strong><?=$foundDishes['appetizer']?></li>
                     <li><strong>Entree:</strong>
                         <ul>
-                            <?php foreach ($foundDishes[$key]['entree'] as $entreeItem) :?>
+                            <?php foreach ($foundDishes['entree'] as $entreeItem) :?>
                                 <li><?=$entreeItem?></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
-                    <li><strong>Desert: </strong><?=$foundDishes[$key]['desert']?></li>
-                    <li><strong>Calories: </strong><?=$foundDishes[$key]['calories']?></li>
+                    <li><strong>Desert: </strong><?=$foundDishes['desert']?></li>
+                    <li><strong>Calories: </strong><?=$foundDishes['calories']?></li>
                 </ul>
             <?php endforeach; ?>
 
