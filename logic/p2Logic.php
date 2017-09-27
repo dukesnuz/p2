@@ -23,7 +23,6 @@ $maxCalories=$nutrition=$diet=$nonDiet=$protein=$beef=$chicken=$eggs=$fish=$pork
 //$errorMaxcalories = 'true';
 $outputClass='outputHide';
 
-
 // Set value in fields
 if (isset($_GET['maxCalories'])) {
     $maxCalories=sanitize($_GET['maxCalories']);
@@ -73,7 +72,6 @@ if ($form->isSubmitted()) {
         } //End if
     } // END foreach
     // Show hide results section
-
     if (!empty($errors) || $protein == 'select') {
         $outputClass='outputHide';
     } else {
