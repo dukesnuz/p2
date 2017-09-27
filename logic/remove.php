@@ -14,7 +14,16 @@ function removeVowels($remove, $keep) {
             }
         }
     }
-    echo 'The new string without vowels: '.implode(' ', $keep);
+    echo 'The new string without vowels: '.implode('-', $keep);
 }
 
-removeVowels(['a', 'e', 'i', 'o', 'u'], ['a', 'p', 'p', 'l', 'e', 'p', 'i', 'e', 'a', 'n', 'd', 'i', 'c', 'e', 'c', 'r', 'e', 'a', 'm']);
+$removeElements = ['a', 'e', 'i', 'o', 'u'];
+$keepElements = ['a', 'p', 'p', 'l', 'e', 'p', 'i', 'e', 'a', 'n', 'd', 'i', 'c', 'e', 'c', 'r', 'e', 'a', 'm'];
+?>
+<!--Note this is not good to mix logic and display. This is simply for this script-->
+<p>Original element values.</p>
+<?php echo implode('-', $keepElements); ?>
+<p>Remove these element values.</p>
+<?php echo implode('-', $removeElements); ?>
+<hr>
+<?php removeVowels($removeElements, $keepElements);
