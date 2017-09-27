@@ -23,6 +23,41 @@ $maxCalories=$nutrition=$diet=$nonDiet=$protein=$beef=$chicken=$eggs=$fish=$pork
 //$errorMaxcalories = 'true';
 $outputClass='outputHide';
 
+
+// Set value in fields
+if (isset($_GET['maxCalories'])) {
+    $maxCalories=sanitize($_GET['maxCalories']);
+}
+if(isset($_GET['nutrition'])) {
+    $nutrition=sanitize($_GET['nutrition']);
+}
+if (isset($_GET['protein'])) {
+    $protein=sanitize($_GET['protein']);
+}
+
+// Save entered values to form
+if($nutrition=='diet') {
+    $diet='CHECKED';
+}
+if($nutrition=='nonDiet') {
+    $nonDiet='CHECKED';
+}
+if ($protein =='beef') {
+    $beef='SELECTED';
+}
+if ($protein=='chicken') {
+    $chicken='SELECTED';
+}
+if ($protein=='eggs') {
+    $eggs='SELECTED';
+}
+if ($protein=='fish') {
+    $fish='SELECTED';
+}
+if ($protein=='pork') {
+    $pork='SELECTED';
+}
+
 // Validate form data and display results
 if ($form->isSubmitted()) {
     $errorMaxcalories = false;
@@ -38,47 +73,13 @@ if ($form->isSubmitted()) {
         } //End if
     } // END foreach
     // Show hide results section
-    if (!empty($errors)) {
+
+    if (!empty($errors) || $protein == 'select') {
         $outputClass='outputHide';
     } else {
         $outputClass='outputDisplay';
     }
 } // END if ($form-isSubmitted)
-
-
-// Set value in fields
-if (isset($_GET['maxCalories'])) {
-    $maxCalories=sanitize($_GET['maxCalories']);
-}
-if(isset($_GET['nutrition'])) {
-    $nutrition=sanitize($_GET['nutrition']);
-}
-if (isset($_GET['protein']) && $_GET['protein'] !='select') {
-    $protein=sanitize($_GET['protein']);
-}
-
-// Save entered values to form
-if($nutrition=='diet') {
-    $diet = 'CHECKED';
-}
-if($nutrition=='nonDiet') {
-    $nonDiet = 'CHECKED';
-}
-if ($protein =='beef') {
-    $beef= 'SELECTED';
-}
-if ($protein =='chicken') {
-    $chicken= 'SELECTED';
-}
-if ($protein =='eggs') {
-    $eggs= 'SELECTED';
-}
-if ($protein =='fish') {
-    $fish= 'SELECTED';
-}
-if ($protein =='pork') {
-    $pork= 'SELECTED';
-}
 
 // Call getDish method passing in 3 parameters
 $foundDishes = $menu->getDish($maxCalories, $nutrition, $protein);
