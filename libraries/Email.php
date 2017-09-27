@@ -1,16 +1,18 @@
 <?php
 namespace DWA;
 
-class Email {
+class Email
+{
 	// Properties
 	private $recipient;
 
     // Methods
-	public function __contruct($recipient){
+	public function __contruct($recipient)
+	{
 		$this->recipient = $recipient;
 	}
 
-	public function send($subject, $message){
+	public function send($subject, $message) {
 		return mail($this->recipient, $subject, $message);
 	}
 

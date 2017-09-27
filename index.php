@@ -40,6 +40,7 @@ include ('./logic/p2Logic.php');
             <header>
                 <h3>Select your preferences</h3>
             </header>
+
             <!--User input form-->
             <form action ="/" method="get">
                 <p>
@@ -60,7 +61,7 @@ include ('./logic/p2Logic.php');
                     <p>
                         <label><input type="radio" name="nutrition" value="nonDiet" <?=$nonDiet?>>Non Diet</label>
                     </p>
-                    <span class="error"><?php echo (!$form->get('nutrition'))? 'Required' : '';?></span>
+                    <span class="error"><?php echo (!$form->get('nutrition'))? 'Required' : '' ;?></span>
                 </fieldset>
                 <p>
                     <label for="protein">Select a Protein</label>
@@ -72,7 +73,7 @@ include ('./logic/p2Logic.php');
                         <option value="fish" <?=$fish?>>Fish</option>
                         <option value="pork" <?=$pork?>>Pork</option>
                     </select>
-                    <span class="error"><?php echo (!$form->get('protein') || $form->get('protein') == 'select' || $form->get('protein' == null))? 'Required' : '';?></span>
+                    <span class="error"><?php echo (!$form->get('protein') || $form->get('protein') == 'select' || $form->get('protein' == null))? 'Required' : '' ;?></span>
                 </p>
                 <p>
                     <button type="submit">Select your dinner</button>
@@ -88,16 +89,16 @@ include ('./logic/p2Logic.php');
                 <?php if (count($foundDishes) > 0) : ?>
                     <h3>We Found These Tasty Dishes For You.</h3>
                     <ul>
-                        <li><strong>Your calorie selection:</strong> <?=$maxCalories?></li>
-                        <li><strong>Your diet selection:</strong> <?php echo ($diet == "CHECKED")?  'Diet':  'Not diet';?></li>
-                        <li><strong>Your protein selection:</strong> <?=ucfirst($protein)?></li>
+                        <li><strong>Your calorie selection:</strong><?=$maxCalories?></li>
+                        <li><strong>Your diet selection:</strong><?php echo ($diet == "CHECKED")? 'Diet': 'Not diet' ;?></li>
+                        <li><strong>Your protein selection:</strong><?=ucfirst($protein)?></li>
                     </ul>
                 <?php else : ?>
                     <h3>We did not find any tasty dishes. Please try again.</h3>
                     <ul>
-                        <li><strong>Your calories selection:</strong> <?=$maxCalories?></li>
-                        <li><strong>Your diet selection:</strong> <?=($diet == "CHECKED")? 'Diet': 'Not diet'?></li>
-                        <li><strong>Your protein selection:</strong> <?=$protein?></li>
+                        <li><strong>Your calories selection:</strong><?=$maxCalories?></li>
+                        <li><strong>Your diet selection:</strong><?=($diet == "CHECKED")? 'Diet': 'Not diet'?></li>
+                        <li><strong>Your protein selection:</strong><?=$protein?></li>
                     </ul>
                 <?php endif; ?>
             </header>
@@ -110,7 +111,7 @@ include ('./logic/p2Logic.php');
                     <li><strong>Appetizer: </strong><?=$foundDishes[$key]['appetizer']?></li>
                     <li><strong>Entree:</strong>
                         <ul>
-                            <?php foreach ($foundDishes[$key]['entree'] as $entreeItem) :?>
+                            <?php foreach ($foundDishes[$key]['entree'] as $entreeItem) : ?>
                                 <li><?=$entreeItem?></li>
                             <?php endforeach; ?>
                         </ul>
