@@ -19,42 +19,38 @@ $menu = new Menu('./data/menu.json');
 $form = new Form($_GET);
 
 // Set variables to empty string
-$maxCalories=$nutrition=$diet=$nonDiet=$protein=$beef=$chicken=$eggs=$fish=$pork='';
+$maxCalories = $nutrition = $diet = $nonDiet = $protein = $beef = $chicken = $eggs = $fish = $pork = '';
 //$errorMaxcalories = 'true';
-$outputClass='outputHide';
+$outputClass = 'outputHide';
 
 // Set value in fields
 if (isset($_GET['maxCalories'])) {
-    $maxCalories=sanitize($_GET['maxCalories']);
+    $maxCalories = sanitize($_GET['maxCalories']);
 }
-if(isset($_GET['nutrition'])) {
-    $nutrition=sanitize($_GET['nutrition']);
+if (isset($_GET['nutrition'])) {
+    $nutrition = sanitize($_GET['nutrition']);
 }
 if (isset($_GET['protein'])) {
-    $protein=sanitize($_GET['protein']);
+    $protein = sanitize($_GET['protein']);
 }
 
 // Save entered values to form
-if($nutrition=='diet') {
-    $diet='CHECKED';
+if ($nutrition == 'diet') {
+    $diet = 'CHECKED';
+} else if ($nutrition == 'nonDiet') {
+    $nonDiet = 'CHECKED';
 }
-if($nutrition=='nonDiet') {
-    $nonDiet='CHECKED';
-}
-if ($protein =='beef') {
-    $beef='SELECTED';
-}
-if ($protein=='chicken') {
-    $chicken='SELECTED';
-}
-if ($protein=='eggs') {
-    $eggs='SELECTED';
-}
-if ($protein=='fish') {
-    $fish='SELECTED';
-}
-if ($protein=='pork') {
-    $pork='SELECTED';
+
+if ($protein == 'beef') {
+    $beef = 'SELECTED';
+} else if ($protein == 'chicken') {
+    $chicken = 'SELECTED';
+} else if ($protein == 'eggs') {
+    $eggs = 'SELECTED';
+} else if ($protein == 'fish') {
+    $fish = 'SELECTED';
+} else if ($protein == 'pork') {
+    $pork = 'SELECTED';
 }
 
 // Validate form data and display results
@@ -73,9 +69,9 @@ if ($form->isSubmitted()) {
     } // END foreach
     // Show hide results section
     if (!empty($errors) || $protein == 'select') {
-        $outputClass='outputHide';
+        $outputClass = 'outputHide';
     } else {
-        $outputClass='outputDisplay';
+        $outputClass = 'outputDisplay';
     }
 } // END if ($form-isSubmitted)
 
