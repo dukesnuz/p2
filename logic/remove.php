@@ -4,7 +4,7 @@
 * Function takes 2 arrays.
 *
 */
-
+// could have used in_array instead of second loop
 function removeVowels($remove, $keep) {
     foreach ($keep as $key => $value) {
         foreach ($remove as $k => $v) {
