@@ -13,7 +13,7 @@ class Email
 	}
 
 	public function send($subject, $message) {
-		return mail($this->recipient, $subject, $message);
+	    return mail($this->recipient, $subject, $message);
 	}
 
 } //END class
