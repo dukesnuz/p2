@@ -8,7 +8,7 @@
 //==============================================================
 
 // Import the p2Logic.php logic script
-include ('./logic/p2Logic.php');
+include('./logic/p2Logic.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,7 +129,8 @@ include ('./logic/p2Logic.php');
         <li>School: Harvard Extension</li>
         <li>Class: Dynamic Web Applications</li>
         <li>Assignment: Project two</li>
-        <li>Student: David Petringa</li>
+        <li><a href="http://dukesnuz.com/self-study-courses/courses-menu/dukesnuz-david-petringa#e-15">
+          Student: David Petringa</a></li>
         <li>Coded: September 2017</li>
       </ul>
 
